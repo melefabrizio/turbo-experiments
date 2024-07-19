@@ -1,0 +1,12 @@
+procs:
+  symfony:
+    cwd: .
+    shell: symfony server:start --port=8081
+    autostart: true
+  mercure:
+    cwd: .
+    shell: docker start -a mercure
+    autostart: true
+    stop:
+      send-keys:
+      - <C-c>

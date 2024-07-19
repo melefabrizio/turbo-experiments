@@ -1,0 +1,15 @@
+name: turbo-exp
+services:
+  symfony:
+    command: symfony server:start --port=8081
+    domains:
+      - turbo-exp.test
+    port: 8081
+    autostart: true
+  mercure:
+    command: "docker start -a mercure"
+    domains:
+      - mercure.test
+    port: 8800
+    autostart: true
+    stop_sequence: 'C-c'

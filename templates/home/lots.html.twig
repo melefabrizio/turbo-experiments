@@ -1,0 +1,16 @@
+<ul class="mt-4" id="lots_list">
+    {% for lot in lots %}
+        <li id="lot_{{ lot.id }}"
+            class="flex flex-col justify-between items-center bg-slate-300 p-2 rounded-lg mb-2"
+                {{ turbo_stream_listen('App\\Entity\\Lot') }}
+        >
+            <div class="w-full flex justify-between">
+                <span>{{ lot.name }}</span>
+                <span>{{ lot.basePrice }} €</span>
+            </div>
+            <div class="w-full flex justify-between">
+                <span>Ultima offerta: {{ lot.lastBid.amount ?? '-' }} di {{ lot.lastBid.bidder ?? '-' }}</span>
+            </div>
+        </li>
+    {% endfor %}
+</ul>

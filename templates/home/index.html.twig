@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    <div class="mt-6">
+        <h1 class="text-xl">Lotti Disponibili</h1>
+
+        <turbo-frame>
+            {% include 'home/lots.html.twig' %}
+        </turbo-frame>
+        {% block bid_form %}
+            {{ form(form) }}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block success_stream %}
+    <turbo-stream action="replace" targets="form[name=form]">
+        <template>
+            {{ block('bid_form') }}
+        </template>
+    </turbo-stream>
+    <turbo-stream action="replace" target="lots_list">
+        <template>
+            {% include 'home/lots.html.twig' %}
+        </template>
+    </turbo-stream>
+{% endblock %}

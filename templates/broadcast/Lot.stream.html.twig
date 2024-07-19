@@ -1,0 +1,13 @@
+{% block update %}
+    <turbo-stream action="update" method="morph" target="lot_{{ id }}">
+        <template>
+            <div class="w-full flex justify-between">
+                <span>{{ entity.name }}</span>
+                <span>{{ entity.basePrice }} €</span>
+            </div>
+            <div class="w-full flex justify-between">
+                <span>Ultima offerta: {{ entity.lastBid.amount ?? '-' }} di {{ entity.lastBid.bidder ?? '-' }}</span>
+            </div>
+        </template>
+    </turbo-stream>
+{% endblock %}
