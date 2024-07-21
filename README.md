@@ -14,4 +14,4 @@ monade start
 
 per avviare il tutto come sempre.
 
-Ricordarsi la env `POSTGRES_URL` nel file `.env.local`.
+Ricordarsi la env `POSTGRES_URL` e `APP_SECRET` nel file `.env.local`.
